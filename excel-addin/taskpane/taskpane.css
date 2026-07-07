@@ -1,0 +1,241 @@
+:root {
+  --canvas: radial-gradient(circle at top, rgba(214, 188, 124, 0.45), transparent 26%), linear-gradient(180deg, #13232f 0%, #203645 56%, #eff2eb 56.1%, #f6f0e4 100%);
+  --ink: #182126;
+  --muted: #5d6a70;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: rgba(21, 35, 44, 0.88);
+  --line: rgba(132, 147, 155, 0.45);
+  --accent: #2f4858;
+  --accent-soft: #e4d6b1;
+  --shadow: 0 24px 48px rgba(20, 31, 37, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.control-panel {
+  color: #f6f0e4;
+  padding: 24px 18px 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(246, 240, 228, 0.7);
+}
+
+.control-panel h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.2rem;
+  line-height: 0.98;
+}
+
+.lede {
+  margin: 0;
+  color: rgba(246, 240, 228, 0.82);
+  line-height: 1.5;
+}
+
+.sheet-pill {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sheet-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(246, 240, 228, 0.65);
+}
+
+.sheet-name {
+  font-weight: 600;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font: inherit;
+}
+
+.field input::placeholder {
+  color: rgba(246, 240, 228, 0.54);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.56;
+  cursor: default;
+}
+
+.button-primary {
+  background: #f2dfae;
+  color: #182126;
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.status-message {
+  margin: 0;
+  min-height: 1.4em;
+  color: rgba(246, 240, 228, 0.78);
+}
+
+.status-error {
+  color: #ffd2d8;
+}
+
+.requirements {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+
+.requirements h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.requirements p {
+  margin: 0;
+  color: rgba(246, 240, 228, 0.82);
+  line-height: 1.45;
+}
+
+.preview-panel {
+  padding: 0 14px 16px;
+}
+
+.preview {
+  background: var(--panel);
+  border-radius: 26px 26px 0 0;
+  min-height: 320px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(141, 160, 171, 0.35);
+  overflow: hidden;
+}
+
+.preview-empty {
+  display: grid;
+  place-items: center;
+}
+
+.placeholder-card,
+.error-card {
+  max-width: 420px;
+  margin: 28px;
+  padding: 22px;
+  border-radius: 22px;
+  background: #fffaf0;
+  border: 1px solid rgba(47, 72, 88, 0.12);
+  box-shadow: 0 14px 24px rgba(20, 31, 37, 0.08);
+}
+
+.placeholder-label,
+.error-label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.placeholder-copy,
+.error-message {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-card {
+  background: #fff1f2;
+}
+
+.preview .report-page {
+  padding: 24px 18px 34px;
+}
+
+@media (max-width: 720px) {
+  .control-panel {
+    padding-inline: 14px;
+  }
+
+  .preview-panel {
+    padding-inline: 8px;
+    padding-bottom: 8px;
+  }
+
+  .preview .report-page {
+    padding-inline: 12px;
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DocTreeGen</title>
+  <link rel="stylesheet" href="./taskpane.css">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel">
+      <p class="eyebrow">Excel Add-in</p>
+      <h1>DocTreeGen</h1>
+      <p class="lede">Generate a user-friendly document tree from the active worksheet and export a standalone HTML report.</p>
+
+      <div class="sheet-pill">
+        <span class="sheet-label">Active sheet</span>
+        <span class="sheet-name" id="sheet-name">Not generated yet</span>
+      </div>
+
+      <label class="field" for="report-title">
+        <span>Report title</span>
+        <input id="report-title" type="text" placeholder="Use the worksheet name">
+      </label>
+
+      <div class="button-row">
+        <button id="generate-button" class="button button-primary" type="button">Generate tree</button>
+        <button id="export-button" class="button button-secondary" type="button" disabled>Export HTML</button>
+      </div>
+
+      <p id="status-message" class="status-message" role="status">Loading Excel context...</p>
+
+      <section class="requirements">
+        <h2>Expected columns</h2>
+        <p>Unique ID, Document number, Short Title, Long Title, Notes, Parent Doc, and Status. Blank Parent Doc cells become tree roots.</p>
+      </section>
+    </section>
+
+    <section class="preview-panel">
+      <div id="preview" class="preview preview-empty">
+        <div class="placeholder-card">
+          <p class="placeholder-label">No tree yet</p>
+          <p class="placeholder-copy">Open the worksheet you want to map, then select Generate tree.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./taskpane.mjs"></script>
+</body>
+</html>
